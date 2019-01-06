@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -11,6 +13,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -20,6 +25,27 @@ public class Giris {
 	private JFrame frame;
 	private JTextField textTC;
 	private JPasswordField pswKasiyer;
+	Baglanti bag = new Baglanti();
+
+	public JTextField getTextTC() {
+		return textTC;
+	}
+
+
+	public void setTextTC(JTextField textTC) {
+		this.textTC = textTC;
+	}
+
+
+	public JPasswordField getPswKasiyer() {
+		return pswKasiyer;
+	}
+
+
+	public void setPswKasiyer(JPasswordField pswKasiyer) {
+		this.pswKasiyer = pswKasiyer;
+	}
+
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -101,12 +127,30 @@ public class Giris {
 				String kullaniciTc = textTC.getText();
 				String kullaniciSifre = pswKasiyer.getText();
 				
-				if (kullaniciTc.equals("1234") && kullaniciSifre.equals("1234")) {
-					
-			//	frame.setVisible(false);
-					new SatisEkrani();
+				
+				String sorgu = "Select * from calisanlar where tc='" + getTextTC().getText() + "'and parola='" + getPswKasiyer().getText().toString()+"'" ;
+				System.out.println("sorgu: "+ sorgu);
+				ResultSet rs = bag.yap(sorgu);
 	
+				try {
+					while (rs.next()) {
+						if (kullaniciTc.equals(rs.getString("tc")) && kullaniciSifre.equals(rs.getString("parola"))) {
+							
+							//	frame.setVisible(false);
+									new SatisEkrani();
+					
+								}
+
+					}
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+					System.out.println("hata");
+					JOptionPane.showMessageDialog(null, "hata");
+
 				}
+				
+				
 				
 			}
 		});
