@@ -67,30 +67,40 @@ public class SatisEkrani implements ActionListener {
 		frame = new JFrame("MARKET OTOMASYONU");
 		frame.getContentPane().setBackground(Color.RED);
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 5));
-		frame.setBounds(100, 100, 600, 500);
+		//frame.setBounds(100, 100, 600, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setBounds(-8, 0, 1650,750);
+		//frame.setExtendedState( frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(10, 191, 564, 215); //
+		scrollPane.setBounds(10, 267, 678, 368); //
 		scrollPane.setBackground(Color.BLUE);
 		frame.getContentPane().add(scrollPane);
 
 		JLabel lblArka = new JLabel("");
 		lblArka.setBackground(Color.WHITE);
-		lblArka.setBounds(10, 53, 211, 76);
+		lblArka.setBounds(10, 86, 255, 97);
 		frame.getContentPane().add(lblArka);
 		lblArka.setOpaque(true);
 
 		lblToplam = new JLabel();
 		lblToplam.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblToplam.setForeground(Color.BLACK);
-		lblToplam.setFont(new Font("Palatino Linotype", Font.BOLD, 73));
+		lblToplam.setFont(new Font("Palatino Linotype", Font.BOLD, 80));
 		lblToplam.setBackground(Color.WHITE);
-		lblToplam.setBounds(10, 65, 204, 64);
+		lblToplam.setBounds(10, 98, 255, 85);
 		lblToplam.setOpaque(true);
 		frame.getContentPane().add(lblToplam);
+		
+		
+		JLabel lblDate = new JLabel();
+		lblDate.setFont(new Font("Palatino Linotype", Font.BOLD, 15));
+		lblDate.setForeground(Color.WHITE);
+		lblDate.setBackground(new Color(255, 0, 0));
+		lblDate.setBounds(530, 37, 158, 20);
+		frame.getContentPane().add(lblDate);
 
 		txtAdet = new JTextField();
 		txtAdet.addKeyListener(new KeyAdapter() {
@@ -105,7 +115,7 @@ public class SatisEkrani implements ActionListener {
 		});
 		txtAdet.setFont(new Font("Tahoma", Font.BOLD, 20));
 		txtAdet.setText("1");
-		txtAdet.setBounds(10, 140, 53, 40);
+		txtAdet.setBounds(10, 194, 66, 40);
 		frame.getContentPane().add(txtAdet);
 		txtAdet.setColumns(10);
 
@@ -121,100 +131,93 @@ public class SatisEkrani implements ActionListener {
 			}
 		});
 		textId.setFont(new Font("Tahoma", Font.BOLD, 20));
-		textId.setBounds(101, 140, 182, 39);
+		textId.setBounds(130, 194, 201, 39);
 		frame.getContentPane().add(textId);
 		textId.setColumns(10);
 
 		table = new JTable();
-		table.setBackground(Color.WHITE);
+		table.setBackground(Color.MAGENTA);
 		modelim.setColumnIdentifiers(kolonlar);
 		scrollPane.setViewportView(table);
 
 		JButton btn0 = new JButton("0");
-		btn0.setBounds(363, 148, 60, 30);
+		btn0.setBounds(558, 202, 60, 30);
 		btn0.addActionListener(this);
 		frame.getContentPane().add(btn0);
 
 		JButton btn1 = new JButton("1");
-		btn1.setBounds(293, 113, 60, 30);
+		btn1.setBounds(488, 161, 60, 30);
 		btn1.addActionListener(this);
 		frame.getContentPane().add(btn1);
 
 		JButton btn2 = new JButton("2");
-		btn2.setBounds(363, 113, 60, 30);
+		btn2.setBounds(558, 161, 60, 30);
 		btn2.addActionListener(this);
 		frame.getContentPane().add(btn2);
 
 		JButton btn3 = new JButton("3");
-		btn3.setBounds(433, 113, 60, 30);
+		btn3.setBounds(628, 161, 60, 30);
 		btn3.addActionListener(this);
 		frame.getContentPane().add(btn3);
 
 		JButton btn4 = new JButton("4");
-		btn4.setBounds(293, 79, 60, 30);
+		btn4.setBounds(488, 120, 60, 30);
 		btn4.addActionListener(this);
 		frame.getContentPane().add(btn4);
 
 		JButton btn5 = new JButton("5");
-		btn5.setBounds(363, 79, 60, 30);
+		btn5.setBounds(558, 120, 60, 30);
 		btn5.addActionListener(this);
 		frame.getContentPane().add(btn5);
 
 		JButton btn6 = new JButton("6");
-		btn6.setBounds(433, 79, 60, 30);
+		btn6.setBounds(628, 120, 60, 30);
 		btn6.addActionListener(this);
 		frame.getContentPane().add(btn6);
 
 		JButton btn7 = new JButton("7");
-		btn7.setBounds(293, 45, 60, 30);
+		btn7.setBounds(488, 79, 60, 30);
 		btn7.addActionListener(this);
 		frame.getContentPane().add(btn7);
 
 		JButton btn8 = new JButton("8");
-		btn8.setBounds(363, 45, 60, 30);
+		btn8.setBounds(558, 79, 60, 30);
 		btn8.addActionListener(this);
 		frame.getContentPane().add(btn8);
 
 		JButton btn9 = new JButton("9");
-		btn9.setBounds(433, 45, 60, 30);
+		btn9.setBounds(628, 79, 60, 30);
 		btn9.addActionListener(this);
 		frame.getContentPane().add(btn9);
 
 		JButton btnSil = new JButton("SİL");
 		btnSil.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnSil.addActionListener(this);
-		btnSil.setBounds(433, 148, 60, 30);
+		btnSil.setBounds(628, 202, 60, 30);
 		frame.getContentPane().add(btnSil);
 
 		JLabel lblBaslik = new JLabel("ORAKLAR MARKET");
-		lblBaslik.setFont(new Font("Arial Black", Font.BOLD, 20));
+		lblBaslik.setFont(new Font("Arial Black", Font.BOLD, 25));
 		lblBaslik.setForeground(Color.WHITE);
-		lblBaslik.setBounds(10, 4, 241, 30);
+		lblBaslik.setBounds(10, 14, 307, 40);
 		frame.getContentPane().add(lblBaslik);
 
 		JLabel lblX = new JLabel("X");
 		lblX.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
-		lblX.setBounds(66, 140, 33, 40);
+		lblX.setBounds(86, 194, 33, 40);
 		frame.getContentPane().add(lblX);
 
 		JLabel lblToplamTutar = new JLabel("Toplam Tutar :");
-		lblToplamTutar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		lblToplamTutar.setFont(new Font("Palatino Linotype", Font.BOLD, 15));
 		lblToplamTutar.setForeground(Color.WHITE);
-		lblToplamTutar.setBounds(10, 40, 100, 14);
+		lblToplamTutar.setBounds(10, 55, 130, 20);
 		frame.getContentPane().add(lblToplamTutar);
-
-		JLabel lblDate = new JLabel();
-		lblDate.setFont(new Font("Palatino Linotype", Font.BOLD, 15));
-		lblDate.setForeground(Color.WHITE);
-		lblDate.setBackground(new Color(255, 0, 0));
-		lblDate.setBounds(363, 14, 130, 20);
-		frame.getContentPane().add(lblDate);
 
 		JLabel lblTL = new JLabel("");
 		lblTL.setBackground(Color.WHITE);
 		lblTL.setIcon(new ImageIcon(SatisEkrani.class.getResource("/image/tl.png")));
-		lblTL.setBounds(213, 53, 70, 76);
+		lblTL.setBounds(265, 86, 66, 97);
 		lblTL.setOpaque(true);
 		frame.getContentPane().add(lblTL);
 
@@ -222,7 +225,8 @@ public class SatisEkrani implements ActionListener {
 		JButton btnEkle = new JButton("EKLE");
 		btnEkle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String sorgu = "select * from urunlistesi where idurunlistesi=" + textId.getText();
+				String sorgu = "select * from urunlistesi where idurunlistesi='" + textId.getText()+"'";
+				System.out.println("sorgu: "+ sorgu);
 				ResultSet rs = bag.yap(sorgu);
 				String sorgu3 = null;
 				try {
@@ -235,12 +239,11 @@ public class SatisEkrani implements ActionListener {
 						modelim.addRow(satirlar);
 						adet2 = rs.getInt("adet"); // adet tablodaki sütunun adı / adet2 değişken adı
 
-						Date simdikiZaman = new Date();////////////////////////////////////////////////////////////////////////////////////////////////////////////
-						// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////df global oluşturdum// yukarıda
-						lblDate.setText(df.format(simdikiZaman));//////////////////////////////////////////////////////////////////////////////////////////////////
+						Date simdikiZaman = new Date();
+						lblDate.setText(df.format(simdikiZaman));
 						sorgu3 = "INSERT INTO satilanUrun(idsatilanUrun,urunAdi,satilanAdet,alisFiyati,satisFiyati,toplamFiyati,date) VALUES ('"
-										+rs.getString("idurunLİstesi") + "','" + rs.getString("urunAdi") + "','" + txtAdet.getText()+ "','" + /////////////////////////////////////// birini seç 1
-										rs.getString("alisFiyati") + "','" + rs.getString("satisFiyati") + "'," + toplam2 + ",'"+ df.format(simdikiZaman) + "')";//////////////////
+										+rs.getString("idurunLİstesi") + "','" + rs.getString("urunAdi") + "','" + txtAdet.getText()+ "','" + 
+										rs.getString("alisFiyati") + "','" + rs.getString("satisFiyati") + "'," + toplam2 + ",'"+ df.format(simdikiZaman) + "')";
 
 					}
 				} catch (SQLException e1) {
@@ -259,26 +262,19 @@ public class SatisEkrani implements ActionListener {
 				int yeniAdet = adet2 - Integer.parseInt(txtAdet.getText());
 				String sorgu5 = "UPDATE urunlistesi set adet=" + yeniAdet + " where idurunListesi=" + textId.getText();
 				bag.update(sorgu5);
-				bag.ekle(sorgu3);///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// birini
-									///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// seç
-									///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 1_2
+				bag.ekle(sorgu3);
 			}
 		});
 		btnEkle.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnEkle.setBounds(293, 148, 60, 30);
+		btnEkle.setBounds(488, 202, 60, 30);
 		frame.getContentPane().add(btnEkle);
 
 		JButton btnYeniSatis = new JButton("YENİ SATIŞ");
+		btnYeniSatis.setForeground(new Color(139, 0, 0));
+		btnYeniSatis.setFont(new Font("Arial Black", Font.BOLD, 20));
 		btnYeniSatis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Date simdikiZaman = new Date();
-				lblDate.setText(df.format(simdikiZaman));
-				
-//				String sorgu4 = "INSERT INTO satisraporu(satisToplami,date) VALUES ('" + lblToplam.getText() + "','"
-//										+ df.format(simdikiZaman) + "')";
-//					bag.ekle(sorgu4);		
-
 				textId.setText("");
 				lblToplam.setText("");
 				txtAdet.setText("1");
@@ -287,33 +283,34 @@ public class SatisEkrani implements ActionListener {
 
 			}
 		});
-		btnYeniSatis.setBounds(10, 417, 110, 23);
+		btnYeniSatis.setBounds(10, 646, 200, 30);
 		frame.getContentPane().add(btnYeniSatis);
 
 		JButton btnFis = new JButton("FİŞ");
+		btnFis.setFont(new Font("Arial Black", Font.BOLD, 20));
+		btnFis.setForeground(new Color(139, 0, 0));
 		btnFis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				git = new Fis(toplam, modelim);
 
 			}
 		});
-		btnFis.setBounds(250, 417, 110, 23);
+		btnFis.setBounds(488, 646, 200, 30);
 		frame.getContentPane().add(btnFis);
 
-		JButton btnMenu = new JButton("MENÜ");
-
-		btnMenu.setBounds(464, 417, 110, 23);
-		frame.getContentPane().add(btnMenu);
-
 		JButton btnIade = new JButton("İADE");
+		btnIade.setForeground(new Color(139, 0, 0));
+		btnIade.setFont(new Font("Arial Black", Font.BOLD, 20));
 		btnIade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				iade = new Iade();
 
 			}
 		});
-		btnIade.setBounds(130, 417, 110, 23);
+		btnIade.setBounds(236, 646, 200, 30);
 		frame.getContentPane().add(btnIade);
+	
+		frame.setVisible(true);
 
 	}
 

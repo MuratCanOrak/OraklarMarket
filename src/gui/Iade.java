@@ -21,7 +21,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Iade implements ActionListener {
-	SatisEkrani sat = new SatisEkrani();
+
 	Baglanti bag = new Baglanti();
 
 	private JFrame frame;
@@ -155,15 +155,14 @@ public class Iade implements ActionListener {
 					
 						adet2 = res.getInt("adet");
 						Date simdikiZaman = new Date();
-								System.out.println(res.getString("idurunListesi"));
+						
 								int ceviri = Integer.parseInt(txtAdet.getText());
 							double topFiyat= res.getDouble("satisFiyati")*ceviri;
 				
 							sorgu3 = "INSERT INTO iadeurun(idiadeUrun,urunAdi,iadeAdet,alisFiyati,satisFiyati,toplamFiyati,date) VALUES ('"
 							+res.getString("idurunListesi")+ "','" +res.getString("urunAdi")+"',"+txtAdet.getText()+ ",'" + res.getDouble("alisFiyati")+ "','" +
 							res.getDouble("satisFiyati")+"',"+topFiyat+",'"+df.format(simdikiZaman)+ "')";
-							//df.format(simdikiZaman)
-								System.out.println("sorgu 3: "+sorgu3);
+						
 					}
 
 				} catch (SQLException e1) {
@@ -173,7 +172,7 @@ public class Iade implements ActionListener {
 				int yeniAdet = adet2 + Integer.parseInt(txtAdet.getText());
 				String sorgu = "UPDATE urunlistesi set adet=" + yeniAdet + " where idurunListesi=" + textId.getText();
 				bag.update(sorgu);
-				System.out.println(sorgu);
+			
 				bag.ekle(sorgu3);
 			}
 		});
